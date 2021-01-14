@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bush.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/0.png" type="Texture" id=13]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/68.png" type="Texture" id=14]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/69.png" type="Texture" id=15]
+[ext_resource path="res://Grass.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/58.png" type="Texture" id=17]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/flowers.png" type="Texture" id=18]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/61.png" type="Texture" id=19]
@@ -724,22 +725,24 @@ texture = ExtResource( 18 )
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 128, 88 )
 
-[node name="Bush" parent="YSort" instance=ExtResource( 2 )]
+[node name="bushes" type="YSort" parent="YSort"]
+
+[node name="Bush" parent="YSort/bushes" instance=ExtResource( 2 )]
 position = Vector2( 80, 80 )
 
-[node name="Bush2" parent="YSort" instance=ExtResource( 2 )]
+[node name="Bush2" parent="YSort/bushes" instance=ExtResource( 2 )]
 position = Vector2( 225, 147 )
 
-[node name="Bush3" parent="YSort" instance=ExtResource( 2 )]
+[node name="Bush3" parent="YSort/bushes" instance=ExtResource( 2 )]
 position = Vector2( 216, 16 )
 
-[node name="Bush4" parent="YSort" instance=ExtResource( 2 )]
+[node name="Bush4" parent="YSort/bushes" instance=ExtResource( 2 )]
 position = Vector2( 64, 16 )
 
-[node name="Bush5" parent="YSort" instance=ExtResource( 2 )]
+[node name="Bush5" parent="YSort/bushes" instance=ExtResource( 2 )]
 position = Vector2( 280, 72 )
 
-[node name="Bush6" parent="YSort" instance=ExtResource( 2 )]
+[node name="Bush6" parent="YSort/bushes" instance=ExtResource( 2 )]
 position = Vector2( 184, 56 )
 
 [node name="decor" type="YSort" parent="YSort"]
@@ -862,3 +865,26 @@ shape = SubResource( 26 )
 [node name="55" type="Sprite" parent="YSort/decor"]
 position = Vector2( 160, 0 )
 texture = ExtResource( 21 )
+
+[node name="grass" type="YSort" parent="YSort"]
+
+[node name="Grass" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 301, 67 )
+
+[node name="Grass2" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 210, 162 )
+
+[node name="Grass3" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 179, 20 )
+
+[node name="Grass4" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 3, 13 )
+
+[node name="Grass5" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 255, 150 )
+
+[node name="Grass6" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 295, 94 )
+
+[node name="Grass7" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 208, 42 )
