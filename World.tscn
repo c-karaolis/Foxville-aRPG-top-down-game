@@ -907,12 +907,21 @@ position = Vector2( 267, 37 )
 
 [node name="Bat" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 165, 37 )
+ACCELERATION = 300
+MAX_SPEED = 50
+FRICTION = 200
 
 [node name="Bat2" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 29, 53 )
+ACCELERATION = 300
+MAX_SPEED = 50
+FRICTION = 200
 
 [node name="Bat3" parent="YSort" instance=ExtResource( 22 )]
 position = Vector2( 180, 115 )
+ACCELERATION = 300
+MAX_SPEED = 50
+FRICTION = 200
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
