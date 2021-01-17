@@ -62,7 +62,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func accelerate_towards_point(point, delta):
-	var direction = global_position.direction_to(wanderController.target_position)
+	var direction = global_position.direction_to(point)
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	sprite.flip_h = velocity.x < 0
 	
