@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Action RPG Resources/Player/Player.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Action RPG Resources/Music and Sounds/Swipe.wav" type="AudioStream" id=7]
 [ext_resource path="res://Action RPG Resources/Music and Sounds/Evade.wav" type="AudioStream" id=8]
 [ext_resource path="res://WhiteColor.shader" type="Shader" id=9]
+[ext_resource path="res://Assets/E.png" type="Texture" id=10]
 
 [sub_resource type="ShaderMaterial" id=48]
 shader = ExtResource( 9 )
@@ -759,6 +760,25 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="CircleShape2D" id=51]
+radius = 20.0
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 10 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=54]
+animations = [ {
+"frames": [ SubResource( 52 ), SubResource( 53 ) ],
+"loop": true,
+"name": "Animate",
+"speed": 3.0
+} ]
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 154, 89 )
 collision_layer = 2
@@ -834,6 +854,20 @@ volume_db = -47.057
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 49 )
 anims/Stop = SubResource( 50 )
+
+[node name="InteractionRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRadius"]
+position = Vector2( 0, -6 )
+shape = SubResource( 51 )
+
+[node name="InteractButtonSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, -33 )
+scale = Vector2( 0.875, 0.875 )
+frames = SubResource( 54 )
+animation = "Animate"
+playing = true
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
