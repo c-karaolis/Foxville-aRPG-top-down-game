@@ -926,7 +926,12 @@ tile_data = PoolIntArray( -2, 23, 0, -1, 23, 1, -65536, 23, 1, -65535, 23, 1, -6
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 128, 88 )
 current = true
+limit_left = -29
+limit_top = -13
+limit_right = 333
+limit_bottom = 193
 smoothing_enabled = true
+editor_draw_limits = true
 
 [node name="unsorted decor" type="Node2D" parent="."]
 
