@@ -1115,13 +1115,14 @@ position = Vector2( 0, 9 )
 shape = SubResource( 45 )
 
 [node name="trees" type="Sprite" parent="YSort/decor"]
-position = Vector2( 104, 160 )
+position = Vector2( 102, 169 )
 texture = ExtResource( 19 )
+offset = Vector2( 0, -11.62 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/decor/trees"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/trees/StaticBody2D"]
-position = Vector2( -1, 10 )
+position = Vector2( -2, 1 )
 shape = SubResource( 46 )
 
 [node name="55" type="Sprite" parent="YSort/decor"]
