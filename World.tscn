@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bush.tscn" type="PackedScene" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/91.png" type="Texture" id=5]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/78.png" type="Texture" id=6]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/94.png" type="Texture" id=7]
-[ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/88.png" type="Texture" id=8]
+[ext_resource path="res://sign.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/62.png" type="Texture" id=9]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/87.png" type="Texture" id=10]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/82.png" type="Texture" id=11]
@@ -876,32 +876,29 @@ height = 0.0
 extents = Vector2( 24, 14 )
 
 [sub_resource type="RectangleShape2D" id=38]
-extents = Vector2( 3, 5 )
-
-[sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 2, 4 )
 
-[sub_resource type="RectangleShape2D" id=40]
+[sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 2, 5 )
 
-[sub_resource type="RectangleShape2D" id=41]
+[sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 7, 3 )
 
-[sub_resource type="RectangleShape2D" id=42]
+[sub_resource type="RectangleShape2D" id=41]
 extents = Vector2( 10, 6 )
 
-[sub_resource type="RectangleShape2D" id=43]
+[sub_resource type="RectangleShape2D" id=42]
 extents = Vector2( 6, 3 )
 
-[sub_resource type="CapsuleShape2D" id=44]
+[sub_resource type="CapsuleShape2D" id=43]
 radius = 7.0
 height = 4.0
 
-[sub_resource type="CapsuleShape2D" id=45]
+[sub_resource type="CapsuleShape2D" id=44]
 radius = 5.0
 height = 8.0
 
-[sub_resource type="RectangleShape2D" id=46]
+[sub_resource type="RectangleShape2D" id=45]
 extents = Vector2( 29, 8 )
 
 [node name="World" type="Node2D"]
@@ -1030,15 +1027,7 @@ position = Vector2( -1, 11 )
 scale = Vector2( 1.115, 1 )
 shape = SubResource( 37 )
 
-[node name="sign" type="Sprite" parent="YSort/decor"]
-position = Vector2( 8, 64 )
-texture = ExtResource( 8 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="YSort/decor/sign"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/sign/StaticBody2D"]
-position = Vector2( 1, 4 )
-shape = SubResource( 38 )
+[node name="sign" parent="YSort/decor" instance=ExtResource( 8 )]
 
 [node name="mail" type="Sprite" parent="YSort/decor"]
 position = Vector2( 48, 152 )
@@ -1048,7 +1037,7 @@ texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/mail/StaticBody2D"]
 position = Vector2( 0, 4 )
-shape = SubResource( 39 )
+shape = SubResource( 38 )
 
 [node name="sign_double" type="Sprite" parent="YSort/decor"]
 position = Vector2( 152, 136 )
@@ -1058,7 +1047,7 @@ texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/sign_double/StaticBody2D"]
 position = Vector2( 0, 8 )
-shape = SubResource( 40 )
+shape = SubResource( 39 )
 
 [node name="flowerpot" type="Sprite" parent="YSort/decor"]
 position = Vector2( 8, 152 )
@@ -1068,7 +1057,7 @@ texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/flowerpot/StaticBody2D"]
 position = Vector2( 0, 4 )
-shape = SubResource( 41 )
+shape = SubResource( 40 )
 
 [node name="78" type="Sprite" parent="YSort/decor"]
 position = Vector2( 24, 32 )
@@ -1082,7 +1071,7 @@ texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/stones_double/StaticBody2D"]
 position = Vector2( 0, 3 )
-shape = SubResource( 42 )
+shape = SubResource( 41 )
 
 [node name="stone2" type="Sprite" parent="YSort/decor"]
 position = Vector2( 96, 16 )
@@ -1092,7 +1081,7 @@ texture = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/stone2/StaticBody2D"]
 position = Vector2( 0, 1 )
-shape = SubResource( 43 )
+shape = SubResource( 42 )
 
 [node name="tree" type="Sprite" parent="YSort/decor"]
 position = Vector2( 272, 124 )
@@ -1102,7 +1091,7 @@ texture = ExtResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/tree/StaticBody2D"]
 position = Vector2( 1, 8 )
-shape = SubResource( 44 )
+shape = SubResource( 43 )
 
 [node name="tree2" type="Sprite" parent="YSort/decor"]
 position = Vector2( 112, 120 )
@@ -1112,7 +1101,7 @@ texture = ExtResource( 20 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/tree2/StaticBody2D"]
 position = Vector2( 0, 9 )
-shape = SubResource( 45 )
+shape = SubResource( 44 )
 
 [node name="trees" type="Sprite" parent="YSort/decor"]
 position = Vector2( 102, 169 )
@@ -1123,7 +1112,7 @@ offset = Vector2( 0, -11.62 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/trees/StaticBody2D"]
 position = Vector2( -2, 1 )
-shape = SubResource( 46 )
+shape = SubResource( 45 )
 
 [node name="55" type="Sprite" parent="YSort/decor"]
 position = Vector2( 160, 0 )
