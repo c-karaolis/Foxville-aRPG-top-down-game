@@ -18,5 +18,6 @@ func _on_InteractionZone_area_entered(area):
 
 func _on_InteractionZone_area_exited(area):
 	print("area LEFT: " , area)
-	area.get_owner().interactButtonSprite.visible = false
+	if area.get_owner() != null:
+		area.get_owner().interactButtonSprite.visible = false
 	canInteract = false

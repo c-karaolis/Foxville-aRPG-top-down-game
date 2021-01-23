@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/87.png" type="Texture" id=1]
+[ext_resource path="res://Overlap/InteractionZone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mail.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 4 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.38516
+
+[node name="mail" type="Sprite"]
+position = Vector2( 48, 152 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
+
+[node name="InteractionZone" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="InteractionZone" index="0"]
+shape = SubResource( 2 )
+
+[editable path="InteractionZone"]

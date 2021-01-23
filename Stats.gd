@@ -2,6 +2,8 @@ extends Node
 
 export var max_health = 1 setget set_max_health
 var health = max_health setget set_health
+var ateShrooms = false
+onready var batsKilled = 0
 
 signal no_health
 signal health_changed(value)
@@ -17,6 +19,12 @@ func set_health(value):
 	emit_signal("health_changed",health)
 	if health <= 0:
 		emit_signal("no_health")
+		
+func reset():
+	self.max_health = 4
+	self.health = max_health
+	batsKilled = 0
+	ateShrooms = false
 
 func _ready():
 	self.health = max_health

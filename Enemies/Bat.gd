@@ -92,6 +92,13 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
+	PlayerStats.batsKilled += 1
+	print("Bat killed. Total bats killed: ", PlayerStats.batsKilled)
+	print("Bat children size: ",get_node("/root/World/YSort/Bats").get_children().size())
+	if PlayerStats.batsKilled == 13:
+		get_node("/root/World/CanvasLayer/GameOver").activate_dialog("Congratulations! You saved the Shézztra residence. At least for now...")
+#	if PlayerStats.batsKilled == 13:
+#		get_node("/root/World/CanvasLayer/GameOver").activate_dialog("Congratulations! You saved the shézztra residence. At least for now...")
 
 
 func _on_Hurtbox_invincibility_started():

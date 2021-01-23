@@ -24,10 +24,11 @@ onready var swordHitbox = $HitboxPivot/SwordHitbox
 onready var hurtbox = $Hurtbox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 onready var interactButtonSprite = $InteractButtonSprite
+onready var interactionRay = $InteractionRadius/CollisionShape2D
 
 func _ready():
 	randomize()
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "die")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 func _process(delta):
@@ -39,6 +40,11 @@ func _process(delta):
 		ATTACK:
 			attack_state(delta)
 			
+	
+
+func die():
+	get_node("/root/World/CanvasLayer/GameOver").activate_dialog("The hero fox has perished but the world carries on the same.")
+	queue_free()
 	
 func move_state(delta):
 	var input_vector = Vector2.ZERO

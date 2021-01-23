@@ -1,19 +1,19 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bush.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/simple_grass_background_64x64.png" type="Texture" id=3]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_custom_16x16.png" type="Texture" id=4]
-[ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/91.png" type="Texture" id=5]
+[ext_resource path="res://sign_double.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/78.png" type="Texture" id=6]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/94.png" type="Texture" id=7]
 [ext_resource path="res://sign.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/62.png" type="Texture" id=9]
-[ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/87.png" type="Texture" id=10]
+[ext_resource path="res://mail.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/82.png" type="Texture" id=11]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/75.png" type="Texture" id=12]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/0.png" type="Texture" id=13]
-[ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/68.png" type="Texture" id=14]
+[ext_resource path="res://CocaFlower.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/69.png" type="Texture" id=15]
 [ext_resource path="res://Grass.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/sliced/58.png" type="Texture" id=17]
@@ -25,6 +25,14 @@
 [ext_resource path="res://Action RPG Resources/UI/HealthUI.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Action RPG Resources/World/Tree.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_custom2_16x16.png" type="Texture" id=25]
+[ext_resource path="res://Assets/panel_Example1.png" type="Texture" id=26]
+[ext_resource path="res://DialogBoxController.gd" type="Script" id=27]
+[ext_resource path="res://Assets/Fonts/Fool.ttf" type="DynamicFontData" id=28]
+[ext_resource path="res://shroom.tscn" type="PackedScene" id=29]
+[ext_resource path="res://HouseDialog.tscn" type="PackedScene" id=30]
+[ext_resource path="res://GameOver.gd" type="Script" id=31]
+[ext_resource path="res://Assets/restart-pressed.png" type="Texture" id=32]
+[ext_resource path="res://Assets/restart.png" type="Texture" id=33]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -875,12 +883,6 @@ height = 0.0
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 24, 14 )
 
-[sub_resource type="RectangleShape2D" id=38]
-extents = Vector2( 2, 4 )
-
-[sub_resource type="RectangleShape2D" id=39]
-extents = Vector2( 2, 5 )
-
 [sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 7, 3 )
 
@@ -900,6 +902,25 @@ height = 8.0
 
 [sub_resource type="RectangleShape2D" id=45]
 extents = Vector2( 29, 8 )
+
+[sub_resource type="DynamicFontData" id=46]
+font_path = "res://Assets/Fonts/Fool.ttf"
+
+[sub_resource type="DynamicFont" id=47]
+size = 10
+outline_color = Color( 0.678431, 0.376471, 0.376471, 1 )
+font_data = SubResource( 46 )
+fallback/0 = ExtResource( 28 )
+
+[sub_resource type="DynamicFontData" id=49]
+font_path = "res://Assets/Fonts/Fool.ttf"
+
+[sub_resource type="DynamicFont" id=50]
+size = 18
+font_data = SubResource( 49 )
+
+[sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 10, 34 )
 
 [node name="World" type="Node2D"]
 
@@ -921,7 +942,7 @@ format = 1
 tile_data = PoolIntArray( -2, 23, 0, -1, 23, 1, -65536, 23, 1, -65535, 23, 1, -65534, 23, 1, -65533, 23, 1, -65532, 23, 1, -65531, 23, 1, -65530, 23, 1, -65529, 23, 1, -65528, 23, 1, -65527, 23, 1, -65526, 23, 1, -65525, 23, 1, -65524, 23, 1, -65523, 23, 1, -65522, 23, 1, -65521, 23, 1, -65520, 23, 1, -65519, 23, 1, -65518, 23, 1, -65517, 23, 1, -65516, 23, 2, 65534, 23, 65538, 14, 2, 65538, 15, 1, 131074, 16, 1, 131074, 17, 1, 131074, 18, 1, 131074, 19, 24, 2, 20, 23, 65536, 131070, 23, 65538, 65537, 2, 65538, 65538, 1, 131074, 65539, 1, 131073, 65540, 1, 131073, 65541, 1, 131074, 65542, 1, 131073, 65543, 1, 131074, 65544, 1, 131074, 65545, 1, 131074, 65546, 2, 65536, 65550, 1, 65539, 65551, 11, 0, 65552, 11, 0, 65553, 11, 0, 65554, 11, 0, 65555, 24, 65538, 65556, 23, 65536, 196606, 23, 65538, 131073, 1, 65539, 131074, 11, 0, 131075, 11, 0, 131076, 11, 0, 131077, 11, 0, 131078, 11, 0, 131079, 11, 0, 131080, 11, 0, 131081, 11, 0, 131082, 1, 65536, 131086, 1, 65539, 131087, 11, 0, 131088, 11, 0, 131089, 11, 0, 131090, 11, 0, 131091, 24, 65538, 131092, 23, 65536, 262142, 23, 65538, 196609, 1, 65539, 196610, 11, 0, 196611, 1, 0, 196612, 1, 1, 196613, 1, 2, 196614, 1, 1, 196615, 1, 2, 196616, 1, 3, 196617, 11, 0, 196618, 1, 65536, 196622, 1, 65539, 196623, 11, 0, 196624, 1, 0, 196625, 1, 2, 196626, 1, 1, 196627, 24, 131074, 196628, 23, 65536, 327678, 1, 131073, 327679, 1, 131073, 262144, 1, 131073, 262145, 1, 131075, 262146, 11, 0, 262147, 1, 65536, 262152, 1, 65539, 262153, 11, 0, 262154, 1, 65536, 262158, 1, 65539, 262159, 11, 0, 262160, 1, 65536, 262164, 23, 65536, 393214, 24, 65537, 393215, 24, 65537, 327680, 11, 0, 327681, 11, 0, 327682, 11, 0, 327683, 1, 65536, 327688, 1, 65539, 327689, 11, 0, 327690, 1, 131072, 327691, 1, 131073, 327692, 1, 131074, 327693, 1, 131073, 327694, 1, 131075, 327695, 11, 0, 327696, 1, 65536, 327700, 23, 65536, 458748, 10, 9, 458750, 24, 131073, 458751, 24, 131073, 393216, 1, 1, 393217, 1, 2, 393218, 1, 1, 393219, 2, 0, 393224, 1, 65539, 393225, 11, 0, 393226, 11, 0, 393227, 11, 0, 393228, 11, 0, 393229, 11, 0, 393230, 11, 0, 393231, 11, 0, 393232, 1, 65536, 393236, 23, 65536, 524284, 10, 9, 524285, 10, 9, 524286, 23, 65538, 458760, 1, 65539, 458761, 11, 0, 458762, 11, 0, 458763, 11, 0, 458764, 11, 0, 458765, 11, 0, 458766, 11, 0, 458767, 11, 0, 458768, 1, 65536, 458772, 23, 65536, 589820, 10, 9, 589821, 10, 9, 589822, 23, 65538, 524296, 2, 2, 524297, 1, 1, 524298, 1, 3, 524299, 11, 0, 524300, 1, 0, 524301, 1, 1, 524302, 1, 2, 524303, 1, 1, 524304, 2, 0, 524308, 23, 65536, 655356, 10, 9, 655357, 10, 9, 655358, 23, 65538, 589834, 1, 65539, 589835, 11, 0, 589836, 1, 65536, 589844, 23, 65536, 720892, 10, 9, 720893, 10, 9, 720894, 23, 65538, 655370, 1, 65539, 655371, 11, 0, 655372, 1, 65536, 655380, 23, 65536, 786430, 23, 131072, 786431, 23, 131073, 720896, 23, 131073, 720897, 23, 131073, 720898, 23, 131073, 720899, 23, 131073, 720900, 23, 131073, 720901, 23, 131073, 720902, 23, 131073, 720903, 23, 131073, 720904, 23, 131073, 720905, 23, 131073, 720906, 24, 65536, 720907, 24, 65537, 720908, 24, 65538, 720909, 23, 131073, 720910, 23, 131073, 720911, 23, 131073, 720912, 23, 131073, 720913, 23, 131073, 720914, 23, 131073, 720915, 23, 131073, 720916, 23, 131074 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 128, 88 )
+position = Vector2( -16, 90 )
 current = true
 limit_left = -29
 limit_top = -13
@@ -932,9 +953,8 @@ editor_draw_limits = true
 
 [node name="unsorted decor" type="Node2D" parent="."]
 
-[node name="flower" type="Sprite" parent="unsorted decor"]
-position = Vector2( 112, 64 )
-texture = ExtResource( 14 )
+[node name="flower" parent="unsorted decor" instance=ExtResource( 14 )]
+position = Vector2( 124, 91 )
 
 [node name="flower2" type="Sprite" parent="unsorted decor"]
 position = Vector2( 280, 96 )
@@ -979,7 +999,7 @@ texture = ExtResource( 18 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 128, 88 )
+position = Vector2( -16, 90 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -987,7 +1007,7 @@ remote_path = NodePath("../../../Camera2D")
 [node name="bushes" type="YSort" parent="YSort"]
 
 [node name="Bush" parent="YSort/bushes" instance=ExtResource( 2 )]
-position = Vector2( 80, 80 )
+position = Vector2( 81, 72 )
 
 [node name="Bush2" parent="YSort/bushes" instance=ExtResource( 2 )]
 position = Vector2( 225, 147 )
@@ -1029,25 +1049,9 @@ shape = SubResource( 37 )
 
 [node name="sign" parent="YSort/decor" instance=ExtResource( 8 )]
 
-[node name="mail" type="Sprite" parent="YSort/decor"]
-position = Vector2( 48, 152 )
-texture = ExtResource( 10 )
+[node name="mail" parent="YSort/decor" instance=ExtResource( 10 )]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="YSort/decor/mail"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/mail/StaticBody2D"]
-position = Vector2( 0, 4 )
-shape = SubResource( 38 )
-
-[node name="sign_double" type="Sprite" parent="YSort/decor"]
-position = Vector2( 152, 136 )
-texture = ExtResource( 5 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="YSort/decor/sign_double"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/sign_double/StaticBody2D"]
-position = Vector2( 0, 8 )
-shape = SubResource( 39 )
+[node name="sign_double" parent="YSort/decor" instance=ExtResource( 5 )]
 
 [node name="flowerpot" type="Sprite" parent="YSort/decor"]
 position = Vector2( 8, 152 )
@@ -1094,13 +1098,14 @@ position = Vector2( 1, 8 )
 shape = SubResource( 43 )
 
 [node name="tree2" type="Sprite" parent="YSort/decor"]
-position = Vector2( 112, 120 )
+position = Vector2( 111, 122 )
 texture = ExtResource( 20 )
+offset = Vector2( 0, -4.526 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/decor/tree2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/decor/tree2/StaticBody2D"]
-position = Vector2( 0, 9 )
+position = Vector2( 0, 5 )
 shape = SubResource( 44 )
 
 [node name="trees" type="Sprite" parent="YSort/decor"]
@@ -1117,6 +1122,20 @@ shape = SubResource( 45 )
 [node name="55" type="Sprite" parent="YSort/decor"]
 position = Vector2( 160, 0 )
 texture = ExtResource( 21 )
+
+[node name="shroom" parent="YSort/decor" instance=ExtResource( 29 )]
+
+[node name="shroom2" parent="YSort/decor" instance=ExtResource( 29 )]
+position = Vector2( 29, 17 )
+
+[node name="shroom3" parent="YSort/decor" instance=ExtResource( 29 )]
+position = Vector2( 112, 62 )
+
+[node name="shroom4" parent="YSort/decor" instance=ExtResource( 29 )]
+position = Vector2( -10, 129 )
+
+[node name="shroom5" parent="YSort/decor" instance=ExtResource( 29 )]
+position = Vector2( 87, 99 )
 
 [node name="grass" type="YSort" parent="YSort"]
 
@@ -1154,10 +1173,10 @@ position = Vector2( 164, 157 )
 position = Vector2( 184, 157 )
 
 [node name="Grass12" parent="YSort/grass" instance=ExtResource( 16 )]
-position = Vector2( 185, 173 )
+position = Vector2( 195, 86 )
 
 [node name="Grass13" parent="YSort/grass" instance=ExtResource( 16 )]
-position = Vector2( 164, 174 )
+position = Vector2( 156, 82 )
 
 [node name="Grass14" parent="YSort/grass" instance=ExtResource( 16 )]
 position = Vector2( 200, 127 )
@@ -1208,37 +1227,184 @@ position = Vector2( 222, 119 )
 position = Vector2( 12, 87 )
 
 [node name="Grass23" parent="YSort/grass" instance=ExtResource( 16 )]
-position = Vector2( -8, 85 )
+position = Vector2( -19, 48 )
 
 [node name="Grass24" parent="YSort/grass" instance=ExtResource( 16 )]
-position = Vector2( -26, 73 )
+position = Vector2( 126, 8 )
 
 [node name="Grass25" parent="YSort/grass" instance=ExtResource( 16 )]
-position = Vector2( -27, 90 )
+position = Vector2( 24, 51 )
+
+[node name="Grass36" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 41, 63 )
+
+[node name="Grass37" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 44, 45 )
+
+[node name="Grass41" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 71, 31 )
+
+[node name="Grass42" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 103, 32 )
+
+[node name="Grass43" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 131, 36 )
+
+[node name="Grass44" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 143, 56 )
+
+[node name="Grass38" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( 58, 96 )
 
 [node name="Grass26" parent="YSort/grass" instance=ExtResource( 16 )]
 position = Vector2( 16, 72 )
+
+[node name="Grass39" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( -1, 37 )
+
+[node name="Grass40" parent="YSort/grass" instance=ExtResource( 16 )]
+position = Vector2( -18, 22 )
 
 [node name="Grass27" parent="YSort/grass" instance=ExtResource( 16 )]
 position = Vector2( 39, 83 )
 
 [node name="Grass28" parent="YSort/grass" instance=ExtResource( 16 )]
-position = Vector2( -8, 70 )
+position = Vector2( 31, 73 )
 
 [node name="trees" type="YSort" parent="YSort"]
 
 [node name="Tree" parent="YSort/trees" instance=ExtResource( 24 )]
 position = Vector2( 248, 19 )
 
-[node name="Bat" parent="YSort" instance=ExtResource( 22 )]
-position = Vector2( 165, 37 )
+[node name="Bats" type="YSort" parent="YSort"]
 
-[node name="Bat2" parent="YSort" instance=ExtResource( 22 )]
-position = Vector2( 29, 53 )
+[node name="Bat" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 247, 134 )
 
-[node name="Bat3" parent="YSort" instance=ExtResource( 22 )]
-position = Vector2( 180, 115 )
+[node name="Bat4" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 239, 64 )
+
+[node name="Bat5" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 256, 95 )
+
+[node name="Bat6" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 285, 158 )
+
+[node name="Bat7" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 313, 131 )
+
+[node name="Bat8" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 256, 65 )
+
+[node name="Bat9" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 233, 44 )
+
+[node name="Bat10" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 200, 47 )
+
+[node name="Bat11" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 173, 115 )
+
+[node name="Bat13" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 161, 40 )
+
+[node name="Bat12" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 186, 97 )
+
+[node name="Bat2" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 29, 54 )
+
+[node name="Bat3" parent="YSort/Bats" instance=ExtResource( 22 )]
+position = Vector2( 259, 48 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 23 )]
+
+[node name="Dialog" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogBox" type="NinePatchRect" parent="CanvasLayer/Dialog"]
+margin_left = 62.0
+margin_top = 121.0
+margin_right = 249.0
+margin_bottom = 186.0
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogText" type="Label" parent="CanvasLayer/Dialog/DialogBox"]
+margin_left = 23.0
+margin_top = 19.0
+margin_right = 166.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 47 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GameOver"]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 0.890196 )
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 73.0
+margin_top = 48.0
+margin_right = 246.0
+margin_bottom = 122.0
+custom_fonts/font = SubResource( 50 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "GAME OVER"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/GameOver"]
+margin_left = 127.0
+margin_top = 128.0
+margin_right = 174.0
+margin_bottom = 170.0
+action_mode = 0
+texture_normal = ExtResource( 33 )
+texture_pressed = ExtResource( 32 )
+expand = true
+
+[node name="bound" type="StaticBody2D" parent="."]
+position = Vector2( -33, 103 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bound"]
+position = Vector2( -2, -18 )
+shape = SubResource( 48 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bound"]
+position = Vector2( 217, 87 )
+rotation = 1.5708
+shape = SubResource( 48 )
+
+[node name="HouseDialog" parent="." instance=ExtResource( 30 )]
+position = Vector2( 29, 130 )
+[connection signal="pressed" from="CanvasLayer/GameOver/TextureButton" to="CanvasLayer/GameOver" method="_on_TextureButton_pressed"]
